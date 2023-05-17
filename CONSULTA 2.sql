@@ -1,3 +1,4 @@
-SELECT employees.emp_no, employees.first_name, employees.last_name, (salaries.salary)
-FROM employees INNER JOIN salaries ON employees.emp_no = salaries.emp_no
-
+SELECT e.emp_no, e.first_name, e.last_name, MAX(s.salary) AS max_salary
+FROM employees e
+JOIN salaries s ON e.emp_no = s.emp_no
+GROUP BY e.emp_no, e.first_name, e.last_name;
